@@ -4,7 +4,7 @@
  * https://solidity.readthedocs.io/en/latest/080-breaking-changes.html
  */
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.5.16 <0.9.0;
+pragma solidity 0.8.9;
 
 contract SimpleBank {
 
@@ -32,11 +32,11 @@ contract SimpleBank {
     event LogEnrolled(address accountAddress);
 
     // Add 2 arguments for this event, an accountAddress and an amount
-    event LogDepositMade(address accountAddress, uint256 amount);
+    event LogDepositMade(address accountAddress, uint amount);
 
     // Create an event called LogWithdrawal
     // Hint: it should take 3 arguments: an accountAddress, withdrawAmount and a newBalance 
-    event LogWithdrawal(address accountAddress, uint256 withdrawAmount, uint256 newBalance);
+    event LogWithdrawal(address accountAddress, uint withdrawAmount, uint newBalance);
 
     /* Functions
      */
@@ -90,7 +90,7 @@ contract SimpleBank {
 
       // 4. Emit the appropriate event associated with this function
         emit LogDepositMade(msg.sender, msg.value);
-      // 5. return the balance of sndr of this transaction
+      // 5. return the balance of sender of this transaction
         return balances[msg.sender];
     }
 
